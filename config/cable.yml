@@ -1,0 +1,9 @@
+development:
+  adapter: async
+
+test:
+  adapter: test
+
+production:
+  adapter: <%= ENV.fetch("ACTION_CABLE_ADAPTER", "async") %>
+  url: <%= ENV["REDIS_URL"] %>

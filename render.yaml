@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: rtechnical-chat-server
+    runtime: ruby
+    rootDir: chat-server
+    buildCommand: bundle install && bundle exec rails db:migrate
+    startCommand: bundle exec puma -C config/puma.rb
+    healthCheckPath: /health
+    envVars:
+      - key: RAILS_ENV
+        value: production
+      - key: CHAT_DATABASE_URL
+        sync: false
+      - key: CHAT_ADMIN_API_KEY
+        generateValue: true
+      - key: CORS_ORIGIN
+        sync: false
