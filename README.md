@@ -22,27 +22,27 @@ Live chat backend for [rtechnical](https://github.com/rtechnical-optical-vn/rtec
 | PATCH | `/api/admin/sessions/:id` | Close session |
 | WS | `/cable` | Action Cable — `ChatSessionChannel` |
 
-## Docker (Windows / không cần cài Ruby trực tiếp)
+## Docker (Windows / no need to install Ruby directly)
 
-**Lưu ý:** Docker Desktop trên Windows vẫn chạy qua **WSL 2** — không thay thế hoàn toàn Ubuntu/WSL.
+**Note:** Docker Desktop on Windows still run via **WSL 2** — it does not completely replace Ubuntu/WSL.
 
-1. Mở **PowerShell (Run as Administrator)**:
+1. Open **PowerShell (Run as Administrator)**:
    ```powershell
    wsl --update
    wsl --install -d Ubuntu
    ```
-2. Khởi động lại máy, mở Ubuntu một lần để tạo user.
-3. Mở Docker Desktop → **Try Again** (đợi Engine chạy xanh).
-4. Trong thư mục `chat-server`:
+2. Restart the PC, and launch Ubuntu once to create a user.
+3. Open Docker Desktop → **Try Again** (wait Engine to turn green).
+4. In the `chat-server` directory:
    ```powershell
    cd d:\source\chat-server
    docker compose up --build
    ```
-5. Kiểm tra: http://localhost:3002/health
+5. Check: http://localhost:3002/health
 
-Postgres trong Docker lắng nghe port **5433** (tránh trùng Postgres cài sẵn trên máy).
+Postgres in Docker listen port **5433** (avoid with Postgres based on your PC).
 
-## Local dev (Ruby trực tiếp)
+## Local dev (Ruby direct)
 
 ```bash
 cd chat-server
